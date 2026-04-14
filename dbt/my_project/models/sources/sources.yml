@@ -1,0 +1,34 @@
+version: 2
+
+sources:
+  - name: dev
+    database: db
+    tables:
+      - name: raw_sales_data
+        columns:
+          - name: id
+          - name: order_id
+          - name: order_date
+          - name: customer_id
+          - name: customer_name
+          - name: city
+          - name: state
+          - name: country_region
+          - name: salesperson
+          - name: region
+          - name: shipped_date
+          - name: shipper_name
+          - name: ship_name
+          - name: ship_address
+          - name: ship_city
+          - name: ship_state
+          - name: ship_country_region
+          - name: payment_type
+          - name: product_name
+          - name: category
+          - name: unit_price
+          - name: quantity
+          - name: revenue
+          - name: shipping_fee
+          - name: revenue_bins
+          - name: inserted_at

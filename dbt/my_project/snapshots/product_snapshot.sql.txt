@@ -1,0 +1,19 @@
+-- snapshots/product_snapshot.sql
+{% snapshot product_snapshot %}
+    {{
+      config(
+        target_schema='raw',
+        unique_key='product_name',
+        strategy='timestamp',
+        updated_at='inserted_at'
+      )
+    }}
+
+    select
+      product_name,
+      category,
+      unit_price_raw,
+      inserted_at
+    from {{ ref('sales_raw') }}
+    where product_name is not null
+{% endsnapshot %}
