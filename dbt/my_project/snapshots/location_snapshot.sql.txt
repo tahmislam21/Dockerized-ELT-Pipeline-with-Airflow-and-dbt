@@ -1,0 +1,20 @@
+{% snapshot location_snapshot %}
+    {{
+      config(
+        target_schema='raw',
+        unique_key='ship_address',
+        strategy='timestamp',
+        updated_at='inserted_at'
+      )
+    }}
+
+    select
+      ship_name,
+      ship_address,
+      ship_city,
+      ship_state,
+      ship_country_region,
+      inserted_at
+    from {{ ref('sales_raw') }}
+    where ship_address is not null
+{% endsnapshot %}

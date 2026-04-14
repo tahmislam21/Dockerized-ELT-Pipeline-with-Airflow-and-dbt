@@ -1,0 +1,23 @@
+{% snapshot customer_snapshot %}
+    {{
+      config(
+        target_schema='raw',
+        unique_key='customer_id',
+        strategy='timestamp',
+        updated_at='inserted_at'
+      )
+    }}
+
+    select
+      customer_id,
+      customer_name,
+      city,
+      state,
+      country_region,
+      salesperson,
+      region,
+      inserted_at
+    from {{ ref('sales_raw') }}
+    where customer_id is not null
+
+{% endsnapshot %}
