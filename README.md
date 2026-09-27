@@ -11,25 +11,8 @@ This project extracts raw data from an Excel source, ingests it into a Postgres 
 It started as a way to get hands-on with the core tools of the modern data stack, and has since grown into an ongoing learning project that's updated periodically as new skills and techniques are added.
 
 ## 🏗️ Architecture
+![Pipeline Architecture](Architecture%20Diagram.png)
 
-```mermaid
-flowchart LR
-    A[Excel Source File] --> B[Python Extraction Scripts]
-    B --> C[(Postgres - Raw Layer)]
-    C --> D[dbt - Staging Models]
-    D --> E[dbt - Warehouse Models]
-    E --> F[dbt - Analytics Layer]
-    F -.future.-> G[Power BI Dashboards]
-
-    subgraph Orchestration
-        H[Apache Airflow DAGs]
-    end
-
-    H --> B
-    H --> D
-    H --> E
-    H --> F
-```
 
 **Flow summary:**
 1. **Extract** — Python scripts pull raw data from an Excel workbook.
@@ -104,3 +87,9 @@ This project is a personal learning journey in data engineering. Updates are sha
 ## 📄 License
 
 This project is open source. Feel free to fork, adapt, and build on it for your own learning.
+
+## Postgres
+![Postgres](Postgres.png)
+
+## Airflow
+![Airflow](Airflow.png)
